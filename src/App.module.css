@@ -1,0 +1,8 @@
+.background {
+    background-image: url("/room.png");
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 50px;
+}

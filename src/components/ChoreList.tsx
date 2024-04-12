@@ -1,5 +1,6 @@
 import Chore from "../types/Chore";
 import ChoreListItem from "./ChoreListItem";
+import styles from "./ChoreList.module.css";
 
 interface ChoreListProps {
     chores: Chore[];
@@ -9,16 +10,20 @@ interface ChoreListProps {
 
 const ChoreList = ({ chores, onChoreStatusChanged, onRemove }: ChoreListProps) => {    
     return (
-        <ul>
-            {chores.map((chore, index) => (
-                <ChoreListItem
-                    key={index}
-                    chore={chore}
-                    onChange={(e) => onChoreStatusChanged(index, e.currentTarget.checked)}
-                    onRemove={() => onRemove(index)}
-                />
-            ))}
-        </ul>
+        <div className={styles.container}>
+            <div className={styles.content}>
+                <ul>
+                    {chores.map((chore, index) => (
+                        <ChoreListItem
+                            key={index}
+                            chore={chore}
+                            onChange={(e) => onChoreStatusChanged(index, e.currentTarget.checked)}
+                            onRemove={() => onRemove(index)}
+                        />
+                    ))}
+                </ul>
+            </div>
+        </div>
     )
 }
 

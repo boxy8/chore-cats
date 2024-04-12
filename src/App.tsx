@@ -2,6 +2,7 @@ import Chore from "./types/Chore";
 import AddChoreForm from "./components/AddChoreForm";
 import ChoreList from "./components/ChoreList"
 import { useEffect, useState } from "react";
+import styles from "./App.module.css";
 
 const initialChores: Chore[] = [
   { description: "Take out the trash", isComplete: false },
@@ -22,7 +23,7 @@ function App() {
     const newChores = [...chores];
     newChores[index] = { ...chores[index], isComplete };
     setChores(newChores);
-    
+
     if (isComplete) {
       setCompletedChores(completedChores + 1);
     } else {
@@ -45,15 +46,15 @@ function App() {
   }
 
   return (
-    <>
+    <div className={styles.background}>
       <ChoreList
         chores={chores}
         onChoreStatusChanged={handleChoreStatusChanged}
         onRemove={handleRemoveChore}
       />
-      <AddChoreForm onAddChore={handleAddChore} />
-      <h1>Completed: {completedChores}</h1>
-    </>
+      {/* <AddChoreForm onAddChore={handleAddChore} />
+      <h1>Completed: {completedChores}</h1> */}
+    </div>
   )
 }
 
