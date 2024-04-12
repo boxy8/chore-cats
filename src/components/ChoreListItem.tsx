@@ -14,7 +14,7 @@ const ChoreListItem = ({
     onRemove,
 }: ChoreListItemProps) => {
     return (
-        <li>
+        <li className={styles.item}>
             <label className={chore.isComplete ? styles.done : undefined}>
                 <input
                     type="checkbox"

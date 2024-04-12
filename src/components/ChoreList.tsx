@@ -10,9 +10,9 @@ interface ChoreListProps {
 
 const ChoreList = ({ chores, onChoreStatusChanged, onRemove }: ChoreListProps) => {    
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <ul>
+            <>
+                <h2>Chores:</h2>
+                <ul className={styles.list}>
                     {chores.map((chore, index) => (
                         <ChoreListItem
                             key={index}
@@ -22,8 +22,7 @@ const ChoreList = ({ chores, onChoreStatusChanged, onRemove }: ChoreListProps) =
                         />
                     ))}
                 </ul>
-            </div>
-        </div>
+            </>
     )
 }
 

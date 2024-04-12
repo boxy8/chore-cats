@@ -1,8 +1,4 @@
-.container {
-    max-width: 25%;
-    height: 100%;
-    background-image: url("/notepad.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-top: 5%;
+.list {
+    list-style-type: none;
+    padding: 0;
 }
