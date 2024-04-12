@@ -1,7 +1,7 @@
 import Chore from "./types/Chore";
 import AddChoreForm from "./components/AddChoreForm";
 import ChoreList from "./components/ChoreList"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const initialChores: Chore[] = [
   { description: "Take out the trash", isComplete: false },
@@ -11,11 +11,23 @@ const initialChores: Chore[] = [
 
 function App() {
   const [chores, setChores] = useState(initialChores);
+  const [completedChores, setCompletedChores] = useState(0);
+
+  useEffect(() => {
+    const initialCompletedChores = initialChores.filter(chore => chore.isComplete).length;
+    setCompletedChores(initialCompletedChores);
+  }, []);
 
   const handleChoreStatusChanged = (index: number, isComplete: boolean) => {
     const newChores = [...chores];
     newChores[index] = { ...chores[index], isComplete };
     setChores(newChores);
+    
+    if (isComplete) {
+      setCompletedChores(completedChores + 1);
+    } else {
+      setCompletedChores(completedChores - 1);
+    }
   }
 
   const handleRemoveChore = (index: number) => {
@@ -40,6 +52,7 @@ function App() {
         onRemove={handleRemoveChore}
       />
       <AddChoreForm onAddChore={handleAddChore} />
+      <h1>Completed: {completedChores}</h1>
     </>
   )
 }

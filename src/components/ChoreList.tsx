@@ -8,14 +8,18 @@ interface ChoreListProps {
 }
 
 const ChoreList = ({ chores, onChoreStatusChanged, onRemove }: ChoreListProps) => {    
-    return chores.map((chore, index) => (
-        <ChoreListItem
-            key={index}
-            chore={chore}
-            onChange={(e) => onChoreStatusChanged(index, e.target.checked)}
-            onRemove={() => onRemove(index)}
-        />
-    ))
+    return (
+        <ul>
+            {chores.map((chore, index) => (
+                <ChoreListItem
+                    key={index}
+                    chore={chore}
+                    onChange={(e) => onChoreStatusChanged(index, e.currentTarget.checked)}
+                    onRemove={() => onRemove(index)}
+                />
+            ))}
+        </ul>
+    )
 }
 
 export default ChoreList;
