@@ -1,33 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Chore from "./types/Chore";
+import ChoreList from "./components/ChoreList"
+import { useState } from "react";
+
+const initialChores: Chore[] = [
+  { description: "Take out the trash", isComplete: false },
+  { description: "Walk the dog", isComplete: true },
+  { description: "Do the dishes", isComplete: false },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [chores, setChores] = useState(initialChores);
+
+  const handleChoreStatusChanged = (index: number, isComplete: boolean) => {
+    const newChores = [...chores];
+    newChores[index] = { ...chores[index], isComplete };
+    setChores(newChores);
+  }
+
+  const handleRemoveChore = (index: number) => {
+    const newChores = [...chores];
+    newChores.splice(index, 1);
+    setChores(newChores);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ChoreList 
+        chores={chores} 
+        onChoreStatusChanged={handleChoreStatusChanged}
+        onRemove={handleRemoveChore}
+      />
     </>
   )
 }
