@@ -16,6 +16,19 @@
     padding: 3% 2%;
 }
 
+.catContainer {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.catImg {
+    height: 100%;
+    margin: 10px;
+}
+
 .counter {
     position :absolute;
     bottom: 0;

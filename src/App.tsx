@@ -10,6 +10,8 @@ const initialChores: Chore[] = [
   { description: "Do the dishes", isComplete: false },
 ];
 
+const catImages: string[] = Array.from({ length: 12 }, (_, index) => `cat${index}.png`);
+
 function App() {
   const [chores, setChores] = useState(initialChores);
   const [completedChores, setCompletedChores] = useState(0);
@@ -55,6 +57,16 @@ function App() {
         />
         <AddChoreForm onAddChore={handleAddChore} />
       </div>
+      <div className={styles.catContainer}>
+      {catImages.map((imageName, index) => (
+        index < completedChores && <img
+          key={index}
+          src={`/cats/${imageName}`}
+          alt={`Cat ${index}`}
+          className={styles.catImg}
+        />
+      ))}
+    </div>
       <h1 className={styles.counter}>Completed: {completedChores}</h1>
     </div>
   )
