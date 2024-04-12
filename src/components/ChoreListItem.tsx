@@ -16,12 +16,12 @@ const ChoreListItem = ({
     return (
         <li>
             <label className={chore.isComplete ? styles.done : undefined}>
-                {chore.description}{" "}
                 <input
                     type="checkbox"
                     checked={chore.isComplete}
                     onChange={onChange}
                 />
+                {chore.description}
             </label>
             <button onClick={onRemove}>Remove</button>
         </li>

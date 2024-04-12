@@ -1,4 +1,5 @@
 import Chore from "./types/Chore";
+import AddChoreForm from "./components/AddChoreForm";
 import ChoreList from "./components/ChoreList"
 import { useState } from "react";
 
@@ -23,13 +24,22 @@ function App() {
     setChores(newChores);
   }
 
+  const handleAddChore = (description: string) => {
+    const newChore: Chore = {
+      description,
+      isComplete: false,
+    };
+    setChores([...chores, newChore]);
+  }
+
   return (
     <>
-      <ChoreList 
-        chores={chores} 
+      <ChoreList
+        chores={chores}
         onChoreStatusChanged={handleChoreStatusChanged}
         onRemove={handleRemoveChore}
       />
+      <AddChoreForm onAddChore={handleAddChore} />
     </>
   )
 }
