@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import Chore from "../types/Chore";
+import Chore, { ChoreCategory } from "../types/Chore";
 import styles from "./ChoreListItem.module.css";
 
 interface ChoreListItemProps {
@@ -8,6 +8,13 @@ interface ChoreListItemProps {
     onRemove: () => void;
 }
 
+const categoryIcons: Record<ChoreCategory, string> = {
+    [ChoreCategory.Household]: 'household-icon.svg',
+    [ChoreCategory.Kitchen]: 'kitchen-icon.svg',
+    [ChoreCategory.Outdoor]: 'outdoor-icon.svg',
+    [ChoreCategory.Other]: 'other-icon.svg',
+};
+
 const ChoreListItem = ({
     chore,
     onChange,
@@ -15,13 +22,14 @@ const ChoreListItem = ({
 }: ChoreListItemProps) => {
     return (
         <li className={styles.item}>
-            <label className={chore.isComplete ? styles.done : undefined}>
+            <label className={`${styles.description} ${chore.isComplete ? styles.done : undefined}`}>
                 <input
                     type="checkbox"
                     checked={chore.isComplete}
                     onChange={onChange}
                 />
                 {chore.description}
+                <img src={categoryIcons[chore.category]} alt={chore.category}/>
             </label>
             <button onClick={onRemove}>Remove</button>
         </li>
