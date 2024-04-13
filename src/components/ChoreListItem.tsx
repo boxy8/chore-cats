@@ -11,8 +11,7 @@ interface ChoreListItemProps {
 const categoryIcons: Record<ChoreCategory, string> = {
     [ChoreCategory.Household]: 'household-icon.svg',
     [ChoreCategory.Kitchen]: 'kitchen-icon.svg',
-    [ChoreCategory.Outdoor]: 'outdoor-icon.svg',
-    [ChoreCategory.Other]: 'other-icon.svg',
+    [ChoreCategory.Outdoor]: 'outdoor-icon.svg'
 };
 
 const ChoreListItem = ({
@@ -29,7 +28,7 @@ const ChoreListItem = ({
                     onChange={onChange}
                 />
                 {chore.description}
-                <img src={categoryIcons[chore.category]} alt={chore.category}/>
+                {chore.category && <img src={categoryIcons[chore.category]} alt={chore.category}/>}
             </label>
             <button onClick={onRemove}>Remove</button>
         </li>

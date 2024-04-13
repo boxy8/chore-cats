@@ -2,13 +2,17 @@ import { useState } from "react";
 import { ChoreCategory } from "../types/Chore";
 import styles from "./AddChoreForm.module.css";
 
-const AddChoreForm = ({ onAddChore }: { onAddChore: (description: string, category: ChoreCategory) => void}) => {
+const AddChoreForm = ({ onAddChore }: { onAddChore: (description: string, category?: ChoreCategory) => void}) => {
     const [description, setDescription] = useState("")
-    const [category, setCategory] = useState<ChoreCategory>(ChoreCategory.Household)
+    const [category, setCategory] = useState<ChoreCategory | "">(ChoreCategory.Household)
 
     const handleAddChore = () => {
         if (description.trim()) {
-            onAddChore(description, category);
+            if (category == "") {
+                onAddChore(description);
+            } else {
+                onAddChore(description, category);
+            }
             setDescription("");
         }
     }
@@ -27,6 +31,7 @@ const AddChoreForm = ({ onAddChore }: { onAddChore: (description: string, catego
                         {category}
                     </option>
                 ))}
+                <option value={""}>None</option>
             </select>
             <button 
                 type="submit" 
