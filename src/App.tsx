@@ -82,7 +82,7 @@ function App() {
         ))
       }
     </div>
-      <h1 className={styles.counter}>Completed: {completedChores}</h1>
+      <h2 className={styles.counter}>Completed: {completedChores}</h2>
     </div>
   )
 }

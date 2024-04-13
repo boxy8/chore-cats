@@ -1,22 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: "Playpen Sans", cursive;
+    font-family: "Varela Round", sans-serif;
+    font-size: 1.2rem;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 button {
-    /* border: 1px solid transparent; */
-    /* border-radius: 8px;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500; */
+    border: 1px solid transparent;
+    background-color: #b6d2f1;
+    border-radius: 4px;
+    font-size: 0.8em;
     font-family: inherit;
     cursor: pointer;
   }
+
+select {
+    font-family: "Varela Round", sans-serif;
+    font-size: 1.2rem;
+    color: #5e4f5d;
+    border: none;
+    margin: 5px;
+}
+
+input {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2rem;
+  color: #5e4f5d;
+}
