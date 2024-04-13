@@ -54,11 +54,14 @@ function App() {
   return (
     <div className={styles.background}>
       <div className={styles.container}>
-        <ChoreList
-          chores={chores}
-          onChoreStatusChanged={handleChoreStatusChanged}
-          onRemove={handleRemoveChore}
-        />
+        <h2>Chores:</h2>
+        <div className={styles.choreListContainer}>
+          <ChoreList
+            chores={chores}
+            onChoreStatusChanged={handleChoreStatusChanged}
+            onRemove={handleRemoveChore}
+          />
+        </div>
         <AddChoreForm onAddChore={handleAddChore} />
       </div>
       <div className={styles.catContainer}>
