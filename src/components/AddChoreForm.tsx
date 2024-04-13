@@ -1,14 +1,15 @@
 import { useState } from "react";
+import styles from "./AddChoreForm.module.css";
 
 const AddChoreForm = ({ onAddChore }: { onAddChore: (description: string) => void}) => {
     const [description, setDescription] = useState("")
 
     return (
-        <form>
+        <form className={styles.form}>
             <input 
                 type="text" 
                 value={description} 
-                placeholder="Chore description"
+                placeholder="New chore"
                 onInput={(e) => setDescription(e.currentTarget.value)}
             />
             <button 

@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid #b6d2f1;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.form input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-family: "Playpen Sans", cursive;
+    font-size: 1em;
+}
