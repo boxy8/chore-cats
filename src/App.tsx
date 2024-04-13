@@ -10,15 +10,19 @@ const initialChores: Chore[] = [
   { description: "Do the dishes", isComplete: false },
 ];
 
-const catImages: string[] = Array.from({ length: 12 }, (_, index) => `cat${index}.png`);
+const NUM_CATS = 12;
 
 function App() {
   const [chores, setChores] = useState(initialChores);
   const [completedChores, setCompletedChores] = useState(0);
+  const [shuffledCatIndices, setshuffledCatIndices] = useState<number[]>([]);
 
   useEffect(() => {
     const initialCompletedChores = initialChores.filter(chore => chore.isComplete).length;
     setCompletedChores(initialCompletedChores);
+
+    const catIndices = Array.from({ length: NUM_CATS }, (_, index) => index);
+    setshuffledCatIndices(catIndices.sort(() => Math.random() - 0.5));
   }, []);
 
   const handleChoreStatusChanged = (index: number, isComplete: boolean) => {
@@ -58,14 +62,16 @@ function App() {
         <AddChoreForm onAddChore={handleAddChore} />
       </div>
       <div className={styles.catContainer}>
-      {catImages.map((imageName, index) => (
-        index < completedChores && <img
-          key={index}
-          src={`/cats/${imageName}`}
-          alt={`Cat ${index}`}
-          className={styles.catImg}
-        />
-      ))}
+      {
+        Array.from({ length: NUM_CATS }, (_, index) => index).map((index) => (
+          <img
+            key={index}
+            src={`/cats/cat${index}.png`}
+            alt={`Cat ${index}`}
+            className={`${styles.catImg} ${!shuffledCatIndices.slice(0, completedChores).includes(index) && styles.hide}`}
+          />
+        ))
+      }
     </div>
       <h1 className={styles.counter}>Completed: {completedChores}</h1>
     </div>
