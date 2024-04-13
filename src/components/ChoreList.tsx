@@ -11,7 +11,6 @@ interface ChoreListProps {
 const ChoreList = ({ chores, onChoreStatusChanged, onRemove }: ChoreListProps) => {    
     return (
             <>
-                <h2>Chores:</h2>
                 <ul className={styles.list}>
                     {chores.map((chore, index) => (
                         <ChoreListItem
