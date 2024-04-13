@@ -1,13 +1,14 @@
-import Chore from "./types/Chore";
+import Chore, { ChoreCategory } from "./types/Chore";
 import AddChoreForm from "./components/AddChoreForm";
 import ChoreList from "./components/ChoreList"
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 
 const initialChores: Chore[] = [
-  { description: "Take out the trash", isComplete: false },
-  { description: "Walk the dog", isComplete: true },
-  { description: "Do the dishes", isComplete: false },
+  { description: "Take out the trash", category: ChoreCategory.Household, isComplete: false },
+  { description: "Walk the dog", category: ChoreCategory.Outdoor, isComplete: true },
+  { description: "Do the dishes", category: ChoreCategory.Kitchen, isComplete: false },
+  { description: "Smile", isComplete: false },
 ];
 
 const NUM_CATS = 12;
@@ -24,6 +25,10 @@ function App() {
     const catIndices = Array.from({ length: NUM_CATS }, (_, index) => index);
     setshuffledCatIndices(catIndices.sort(() => Math.random() - 0.5));
   }, []);
+
+  useEffect(() => {
+    console.log(chores)
+  });
 
   const handleChoreStatusChanged = (index: number, isComplete: boolean) => {
     const newChores = [...chores];
@@ -43,9 +48,10 @@ function App() {
     setChores(newChores);
   }
 
-  const handleAddChore = (description: string) => {
+  const handleAddChore = (description: string, category?: ChoreCategory) => {
     const newChore: Chore = {
       description,
+      category,
       isComplete: false,
     };
     setChores([...chores, newChore]);
