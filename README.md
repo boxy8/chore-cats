@@ -26,8 +26,7 @@ npm run dev
 TypeScript is a programming language that builds on JavaScript, adding something called static typing. JavaScript is a dynamically typed language. This means the data types, like string or number, are checked at runtime i.e. when the application is running. In TypeScript however, type checking occurs at compile time. The data types of variables cannot change during runtime. 
 
 ### Benefits
-The clearest benefit from type checking at compile time is error detection! TypeScript will notify you of errors when data types don’t match, allowing you to catch bugs in development.
-
+The clearest benefit from type checking at compile time is error detection! TypeScript will notify you of errors when data types don’t match, allowing you to catch bugs in development. For a small, simple app, the type safety of TypeScript might be too tedious for the benefit. But for larger, more complex applications, the type safety of TypeScript can greatly improve code maintainability, catch bugs early, and enhance developer productivity, making it well worth the initial investment in setting up types and annotations.
 
 ### How does it work?
 You may recall that browsers can only run JavaScript, and when you write a React component using JSX, you need a tool such as Babel to transpile this to regular old JavaScript. A similar thing happens with TypeScript. The TypeScript compiler, tsc, transpiles your code into JavaScript so the browser is happy. 
