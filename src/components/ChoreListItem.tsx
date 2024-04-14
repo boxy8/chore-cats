@@ -27,7 +27,7 @@ const ChoreListItem = ({
                     checked={chore.isComplete}
                     onChange={onChange}
                 />
-                {chore.description}
+                {chore.description.toLowerCase()}
                 {chore.category && <img src={categoryIcons[chore.category]} alt={chore.category}/>}
             </label>
             <button onClick={onRemove}>Remove</button>

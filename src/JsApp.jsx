@@ -3,16 +3,21 @@ import AddChoreForm from "./components/AddChoreForm";
 import ChoreList from "./components/ChoreList"
 import styles from "./App.module.css";
 
+// 1. Typing
+// let NUM_CATS;
+// NUM_CATS = 12;
+// NUM_CATS = "weee";
+// NUM_CATS = ["hi", "bye"]
+
+const NUM_CATS = 12;
+
+// 2. Interfaces
 const initialChores = [
-  { description: "Take out the trash", category: "Household", isComplete: false },
-  { description: "Walk the dog", category: "Outdoor", isComplete: true },
-  { descrption: "Wash the dishes", category: "Kitchen", isComplete: false },
+  { description: "Take out the trash", isComplete: false },
+  { description: "Walk the dog", isComplete: true },
+  { descrption: "Wash the dishes", isComplete: false },
   { description: "Smile", isComplete: false },
 ];
-
-let Num_cats = 12;
-Num_cats = "TWELVE";
-const NUM_CATS = 12;
 
 export default function JsApp() {
   const [chores, setChores] = useState(initialChores);
