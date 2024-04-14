@@ -39,6 +39,10 @@ const initialChores: Chore[] = [
   { description: "Smile", isComplete: false },
 ];
 
+/**
+ * App component is the root component of the app. It displays the list of chores, a form for adding new chores, and cat images.
+ * @returns The App component.
+ */
 function App() {
   const [chores, setChores] = useState(initialChores);
   const [completedChores, setCompletedChores] = useState(0);
@@ -52,10 +56,14 @@ function App() {
     setshuffledCatIndices(catIndices.sort(() => Math.random() - 0.5));
   }, []);
 
-  useEffect(() => {
-    console.log(chores)
-  });
-
+  
+  /**
+   * This function will be called when a chore item's checkbox is clicked.
+   * We will modify the clicked to-do item's isComplete status.
+   * 
+   * @param index - The index of the chore item in the chores array.
+   * @param isComplete - The new isComplete status of the chore item.
+   */
   const handleChoreStatusChanged = (index: number, isComplete: boolean) => {
     const newChores = [...chores];
     newChores[index] = { ...chores[index], isComplete };
@@ -68,6 +76,12 @@ function App() {
     }
   }
 
+  /**
+   * This function will be called when a chore item's remove button is clicked.
+   * We will remove the clicked to-do item from the chores array.
+   * 
+   * @param index - The index of the chore item in the chores array.
+   */
   const handleRemoveChore = (index: number) => {
     const newChores = [...chores];
     newChores.splice(index, 1);
@@ -75,6 +89,13 @@ function App() {
   }
 
   // 3. Functions
+  /**
+   * This function will be called when a new chore is added.
+   * We will add the new chore to the chores array.
+   * 
+   * @param description - The description of the new chore.
+   * @param category - The category of the new chore.
+   */
   const handleAddChore = (description: string, category?: ChoreCategory) => {
     const newChore: Chore = {
       description,

@@ -79,7 +79,7 @@ const initialChores: Chore[] = [
 Each chore has a description and completion status. In JavaScript, there is nothing to enforce that each chore object needs to look like this. If we mispell a property, e.g. "descrption", JavaScript doesn't care, but trying to access the property on that object will now result in undefined. At the very least, this will result in a missing description when that chore is displayed. But, in `ChoreListItem.tsx`, we can see that we are operating on each chore's description.
 
 ```ts
-// Line 30 ChoreListItem.tsx
+// Line 40 ChoreListItem.tsx
 ...
 {chore.description.toLowerCase()}
 ...
@@ -112,7 +112,7 @@ Now, mispelling a property results in an error because the interface requires ea
 Chore cats needs functions to handle adding, removing, and completing chores. TypeScript allows you to type function parameters and return values. 
 
 ``` ts
-// Line 77 App.tsx
+// Line 91 App.tsx
 const handleAddChore = (description: string): void => {
     const newChore: Chore = {
       description,
@@ -181,7 +181,7 @@ For chores that don't come under a certain category, the property has been omitt
 Another benefit of enums is that we can map over the values. This feature is used to create a select dropdown for category in the add chore form. 
 
 ``` tsx
-// Line 28 AddChoreForm.tsx
+// Line 33 AddChoreForm.tsx
 ...
 <select value={category} onChange={(e) => setCategory(e.target.value as ChoreCategory)}>
   {Object.values(ChoreCategory).map((category) => (
