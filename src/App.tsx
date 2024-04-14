@@ -1,17 +1,43 @@
-import Chore, { ChoreCategory } from "./types/Chore";
+// import Chore from "./types/Chore";
+// import { ChoreCategory } from "./types/Chore";
 import AddChoreForm from "./components/AddChoreForm";
 import ChoreList from "./components/ChoreList"
 import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 
-const initialChores: Chore[] = [
-  { description: "Take out the trash", category: ChoreCategory.Household, isComplete: false },
-  { description: "Walk the dog", category: ChoreCategory.Outdoor, isComplete: true },
-  { description: "Do the dishes", category: ChoreCategory.Kitchen, isComplete: false },
-  { description: "Smile", isComplete: false },
-];
+// 1. Typing
+// let NUM_DOGS: number = 12;
+// NUM_DOGS = "heyyy"
 
 const NUM_CATS = 12;
+
+// 2. Interfaces
+interface Chore {
+  description: string,
+  isComplete: boolean,
+  category?: ChoreCategory
+}
+
+// 3. Enums
+enum ChoreCategory {
+  Household = "Household",
+  Outdoor = "Outdoor",
+  Kitchen = "Kitchen"
+}
+
+// 4. Union types and Literal types
+// let NumberOrString: number | string;
+// NumberOrString = 12;
+// NumberOrString = "twelve";
+
+// let SimpleChoreCategory: "Household" | "Outdoor" | "Kitchen";
+
+const initialChores: Chore[] = [
+  { description: "Take out the trash", isComplete: false, category: ChoreCategory.Outdoor },
+  { description: "Walk the dog", isComplete: true, category: ChoreCategory.Outdoor },
+  { description: "Do the dishes", isComplete: false, category: ChoreCategory.Kitchen },
+  { description: "Smile", isComplete: false },
+];
 
 function App() {
   const [chores, setChores] = useState(initialChores);
@@ -48,11 +74,12 @@ function App() {
     setChores(newChores);
   }
 
+  // 3. Functions
   const handleAddChore = (description: string, category?: ChoreCategory) => {
     const newChore: Chore = {
       description,
-      category,
       isComplete: false,
+      category
     };
     setChores([...chores, newChore]);
   }
