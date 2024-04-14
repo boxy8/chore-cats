@@ -23,7 +23,7 @@ button {
 
 select {
     font-family: "Varela Round", sans-serif;
-    font-size: 1.2rem;
+    font-size: 0.8em;
     color: #5e4f5d;
     border: none;
     margin: 5px;
@@ -31,6 +31,6 @@ select {
 
 input {
   font-family: "Varela Round", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1em;
   color: #5e4f5d;
 }
