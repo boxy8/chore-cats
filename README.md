@@ -7,6 +7,7 @@ Chore Cats is a gamified to-do list app for chores! Complete chores and collect 
 This repository contains the code for Chore Cats, as well as some extra code here and there to demonstrate the benefits of TypeScript vs JavaScript.
 
 ## Installation
+This project requires npm and Node.js. For instructions on how to install these, see [documentation here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 To install the Chore Cats tech demo:
 - Clone the repository into your local environment
@@ -220,3 +221,5 @@ npm create vite@latest
 cd <project-name>
 npm i
 ```
+<img width="697" alt="Creating a Vite Project" src="https://github.com/UOA-CS732-SE750-Students-2024/cs732-assignment-boxy8/assets/72005958/d33f718e-7d34-49a2-940b-1348013989fa">
+
