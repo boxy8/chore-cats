@@ -109,7 +109,7 @@ function App() {
         {Array.from({ length: NUM_CATS }, (_, index) => index).map((index) => (
           <img
             key={index}
-            src={`/cats/cat${index}.png`}
+            src={`cats/cat${index}.png`}
             alt={`Cat ${index}`}
             className={`${styles.catImg} ${
               !shuffledCatIndices.slice(0, completedChores).includes(index) &&
