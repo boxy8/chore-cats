@@ -14,6 +14,16 @@ const categoryIcons: Record<ChoreCategory, string> = {
     [ChoreCategory.Outdoor]: 'outdoor-icon.svg'
 };
 
+/**
+ * ChoreListItem component displays a single chore item.
+ * 
+ * @component
+ * @param {ChoreListItemProps} props - The props for the ChoreListItem component.
+ * @param {Chore} props.chore - The chore object containing the chore details.
+ * @param {function} props.onChange - The function to handle the change event when the checkbox is toggled.
+ * @param {function} props.onRemove - The function to handle the remove button click event.
+ * @returns {JSX.Element} The ChoreListItem component.
+ */
 const ChoreListItem = ({
     chore,
     onChange,

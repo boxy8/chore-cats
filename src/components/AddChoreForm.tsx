@@ -2,6 +2,11 @@ import { useState } from "react";
 import { ChoreCategory } from "../types/Chore";
 import styles from "./AddChoreForm.module.css";
 
+/**
+ * AddChoreForm component is a form for creating a new chore.
+ * @param onAddChore - The callback function to be called when a chore is added.
+ * @returns The AddChoreForm component.
+ */
 const AddChoreForm = ({ onAddChore }: { onAddChore: (description: string, category?: ChoreCategory) => void}) => {
     const [description, setDescription] = useState("")
     const [category, setCategory] = useState<ChoreCategory | "">(ChoreCategory.Household)
