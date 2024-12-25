@@ -16,18 +16,16 @@ function App() {
     const savedChores = localStorage.getItem("chores");
     return savedChores ? JSON.parse(savedChores) : [];
   });
-  const [completedChores, setCompletedChores] = useState(0);
+  const [completedChores, setCompletedChores] = useState(() => {
+    const savedCompletedChores = localStorage.getItem("completedChores");
+    return savedCompletedChores ? JSON.parse(savedCompletedChores) : 0;
+  });
   const [shuffledCatIndices, setshuffledCatIndices] = useState<number[]>(() => {
     const savedCatIndices = localStorage.getItem("catIndices");
     return savedCatIndices ? JSON.parse(savedCatIndices) : [];
   });
 
   useEffect(() => {
-    const initialCompletedChores = chores.filter(
-      (chore) => chore.isComplete
-    ).length;
-    setCompletedChores(initialCompletedChores);
-
     const savedCatIndices = localStorage.getItem("catIndices");
     if (savedCatIndices) {
       setshuffledCatIndices(JSON.parse(savedCatIndices));
@@ -41,6 +39,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("chores", JSON.stringify(chores));
   }, [chores]);
+
+  useEffect(() => {
+    localStorage.setItem("completedChores", JSON.stringify(completedChores));
+  }, [completedChores]);
 
   /**
    * This function will be called when a chore item's checkbox is clicked.
